@@ -1,5 +1,6 @@
 package com.dokumenku.meeting
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,6 +8,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import java.util.*
 
 class SplashScreenActivity : AppCompatActivity() {
+    companion object{
+        private const val TAG = "SplashScreenActivity"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         if(isAlreadyLogin())
             redirectToDashboard()
@@ -16,8 +21,8 @@ class SplashScreenActivity : AppCompatActivity() {
 
     override fun onStart(){
         val timerInMilis = 3000L
-        super.onStart()
 
+        super.onStart()
         //start 3 sec timer then redirect
         Timer().schedule(object : TimerTask() {
             override fun run() {
@@ -32,14 +37,18 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun redirectToLogin(){
-        // TO DO : redirect to login
-        Log.d("SplashScreen", "To Login")
-//        finish()
+        val intent = Intent(this, LoginActivity::class.java)
+
+        startActivity(intent)
+        Log.d(TAG, "To Login")
+        finish()
     }
 
     private fun redirectToDashboard(){
-        // TO DO : redirect to Dashboard
-        Log.d("SplashScreen", "To Dashboard")
-//        finish()
+        val intent = Intent(this, PdfMomActivity::class.java)
+
+        startActivity(intent)
+        Log.d(TAG, "To Dashboard")
+        finish()
     }
 }
