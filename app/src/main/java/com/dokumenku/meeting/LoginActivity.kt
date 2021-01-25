@@ -12,7 +12,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 
 class LoginActivity : AppCompatActivity() {
-    private val GOOGLE_LOGIN_REQUEST = 100
+    companion object{
+        private const val TAG = "LoginActivity"
+        private const val GOOGLE_LOGIN_REQUEST = 100
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,14 +51,16 @@ class LoginActivity : AppCompatActivity() {
                 } catch (e: ApiException) {
                     // The ApiException status code indicates the detailed failure reason.
                     // Please refer to the GoogleSignInStatusCodes class reference for more information.
-                    Log.w("Sign In", "signInResult:failed code=" + e.statusCode)
+                    Log.w(TAG, "signInResult:failed code=" + e.statusCode)
                 }
             }
         }
     }
 
     private fun redirectToDashboard() {
-        //TODO : Start dashboard activity, finish
-        Log.d("Login Activity", "Masukk")
+        val intent = Intent(this, PdfMomActivity::class.java)
+        startActivity(intent)
+        Log.d(TAG, "Log in successfully")
+        finish()
     }
 }
