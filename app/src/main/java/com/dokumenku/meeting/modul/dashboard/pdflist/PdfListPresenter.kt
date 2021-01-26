@@ -33,6 +33,14 @@ class PdfListPresenter: PdfListContract.Presenter{
     }
 
     override fun start() {
+        createNewFolder("Empty Folder")
         loadFiles(null)
+    }
+
+    override fun createNewFolder(folderName: String) {
+        val newFolder = File(baseFolder, folderName)
+
+        if(newFolder.mkdir())
+            Log.d(TAG, "Created New Folder, ${newFolder.absolutePath}")
     }
 }

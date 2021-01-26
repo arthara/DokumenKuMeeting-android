@@ -5,6 +5,7 @@ import com.dokumenku.meeting.base.BasePresenter
 interface PdfListContract {
     interface Presenter : BasePresenter{
         fun loadFiles(folderName : String?)
+        fun createNewFolder(folderName : String)
     }
 
     interface View{
