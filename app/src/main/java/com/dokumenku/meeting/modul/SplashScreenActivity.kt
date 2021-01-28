@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.dokumenku.meeting.R
-import com.dokumenku.meeting.modul.dashboard.DashboardActivity
+import com.dokumenku.meeting.modul.dashboard.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import java.util.*
 
@@ -47,7 +47,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun redirectToDashboard(){
-        val intent = Intent(this, DashboardActivity::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
 
         startActivity(intent)
         Log.d(TAG, "To Dashboard")

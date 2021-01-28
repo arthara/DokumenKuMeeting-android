@@ -7,7 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import com.dokumenku.meeting.R
-import com.dokumenku.meeting.modul.dashboard.DashboardActivity
+import com.dokumenku.meeting.modul.dashboard.HomeActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -59,7 +59,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun redirectToDashboard() {
-        val intent = Intent(this, DashboardActivity::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         Log.d(TAG, "Log in successfully")
         finish()

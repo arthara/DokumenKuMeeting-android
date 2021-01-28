@@ -1,4 +1,4 @@
-package com.dokumenku.meeting.modul.dashboard.pdflist
+package com.dokumenku.meeting.modul.dashboard.photolist
 
 import android.content.Intent
 import android.os.Bundle
@@ -13,16 +13,16 @@ import com.dokumenku.meeting.modul.dashboard.HomeActivity
 import java.io.File
 import java.util.*
 
-class PdfListFragment : BaseFragment<HomeActivity, PdfListContract.Presenter>(), PdfListContract.View {
+class PhotoListFragment : BaseFragment<HomeActivity, PhotoListContract.Presenter>(), PhotoListContract.View {
     companion object{
-        private const val TAG = "PdfListFragment"
+        private const val TAG = "PhotoListFragment"
     }
 //    TODO : Need Proper Activity, this one is temporary
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         fragmentView = inflater.inflate(R.layout.activity_pdf_mom, container, false)
-        mPresenter = PdfListPresenter(this, activity.applicationContext)
+        mPresenter = PhotoListPresenter(this, activity.applicationContext)
         mPresenter.start()
         return super.onCreateView(inflater, container, savedInstanceState)
     }
@@ -31,19 +31,11 @@ class PdfListFragment : BaseFragment<HomeActivity, PdfListContract.Presenter>(),
         Log.d("TesList", "Showing List : ${Arrays.toString(fileList)}")
     }
 
-    override fun showPdf(pdfFile: File) {
-        val intent = Intent(Intent.ACTION_VIEW)
-        val uri = FileProvider.getUriForFile(activity
-                , "${this.context?.packageName}.provider"
-                , pdfFile)
-
-        intent.setDataAndType(uri, "application/pdf")
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-        Log.d(TAG, "Opening PDF")
-        startActivity(intent)
+    override fun showPhoto(pdfFile: File) {
+        // TODO : Not Yet Implemented
     }
 
-    override fun redirectToNewPdfPage() {
+    override fun redirectToNewPhotoPage() {
         // TODO : Not Yet Implemented
     }
 }
