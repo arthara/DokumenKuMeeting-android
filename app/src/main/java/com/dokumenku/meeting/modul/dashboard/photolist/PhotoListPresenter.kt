@@ -1,19 +1,16 @@
-package com.dokumenku.meeting.modul.dashboard.pdflist
+package com.dokumenku.meeting.modul.dashboard.photolist
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.util.Log
-import androidx.core.content.FileProvider
 import com.dokumenku.meeting.shared.FileManagerUtils
 import java.io.File
 import java.util.*
 
-class PdfListPresenter(private val view: PdfListContract.View, context: Context): PdfListContract.Presenter{
+class PhotoListPresenter(private val view: PhotoListContract.View, context: Context): PhotoListContract.Presenter{
     companion object{
-        private const val TAG = "PdfListPresenter"
+        private const val TAG = "PhotoListPresenter"
     }
-    private val baseFolder = context.getExternalFilesDir(FileManagerUtils.PDF_PATH)
+    private val baseFolder = context.getExternalFilesDir(FileManagerUtils.MOM_PHOTO_PATH)
 
     override fun loadFiles(folderName: String?) {
         val listFile = FileManagerUtils.loadFiles(baseFolder, folderName)
@@ -26,7 +23,6 @@ class PdfListPresenter(private val view: PdfListContract.View, context: Context)
         //TODO : Remove CreateNewFolder and openpdf
         createNewFolder("Empty Folder")
         loadFiles(null)
-        openPdf("Empty Folder", "PDF Test.pdf")
     }
 
     override fun createNewFolder(folderName: String) {
@@ -36,11 +32,11 @@ class PdfListPresenter(private val view: PdfListContract.View, context: Context)
         }
     }
 
-    override fun openPdf(folderName: String?, fileName: String) {
+    override fun openPhoto(folderName: String?, fileName: String) {
         val file = if(folderName != null)
             File(baseFolder, "$folderName/$fileName")
         else
             File(baseFolder, fileName)
-        view.showPdf(file)
+        view.showPhoto(file)
     }
 }
