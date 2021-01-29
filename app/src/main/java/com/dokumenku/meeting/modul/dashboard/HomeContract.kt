@@ -10,5 +10,7 @@ interface HomeContract {
     interface View{
         fun redirectToProfilePage()
         fun loadGoogleAccountPhoto()
+        fun changeListToPdf()
+        fun changeListToPhoto()
     }
 }
