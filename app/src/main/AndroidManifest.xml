@@ -32,5 +32,6 @@
 
         <activity android:name="com.dokumenku.meeting.modul.dashboard.HomeActivity"/>
         <activity android:name=".modul.LoginActivity" />
+        <activity android:name=".modul.SignatureActivity"/>
     </application>
 </manifest>
