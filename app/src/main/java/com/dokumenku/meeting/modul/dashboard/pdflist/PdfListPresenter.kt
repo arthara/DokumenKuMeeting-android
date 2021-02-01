@@ -26,7 +26,7 @@ class PdfListPresenter(private val view: PdfListContract.View, context: Context)
         //TODO : Remove CreateNewFolder and openpdf
         createNewFolder("Empty Folder")
         loadFiles(null)
-        openPdf("Empty Folder", "PDF Test.pdf")
+        //openPdf("Empty Folder", "PDF Test.pdf")
     }
 
     override fun createNewFolder(folderName: String) {
